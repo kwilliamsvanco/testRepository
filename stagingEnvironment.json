@@ -13,22 +13,22 @@
 		},
 		{
 			"key": "paymentMethodToken",
-			"value": "e12e2bef-ab39-41f7-b237-3d5b3b58a453",
+			"value": "138aa16e-76ae-4c4d-9cf8-9cc65d36d0f7",
 			"enabled": true
 		},
 		{
 			"key": "paymentID",
-			"value": "236544102721544407",
+			"value": "239052555234918438",
 			"enabled": true
 		},
 		{
 			"key": "paymentItemID",
-			"value": "236544102721544408",
+			"value": "239052555302027303",
 			"enabled": true
 		},
 		{
 			"key": "currentDate",
-			"value": 1539625296579,
+			"value": 1539870945377,
 			"enabled": true
 		},
 		{
@@ -40,9 +40,36 @@
 			"key": "PCCT",
 			"value": "A8D261686B",
 			"enabled": true
+		},
+		{
+			"key": "nameOnCard",
+			"value": "Ricardo Riveros",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "addressLine1",
+			"value": "789 Piedmont Avenue",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "postalCode",
+			"value": "56789",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2018-10-15T20:14:21.872Z",
-	"_postman_exported_using": "Postman/6.4.2"
+	"_postman_exported_at": "2018-10-22T19:49:23.714Z",
+	"_postman_exported_using": "Postman/6.4.4"
 }
