@@ -1,0 +1,110 @@
+{
+	"id": "c9d73868-764d-489e-a658-34ae8d268a19",
+	"name": "Staging",
+	"values": [
+		{
+			"key": "env",
+			"value": "stage",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "paymentMethodToken",
+			"value": "cddca7ad-75de-4b6f-a9a0-d70c39f2dc78",
+			"enabled": true
+		},
+		{
+			"key": "paymentID",
+			"value": "239052555234918438",
+			"enabled": true
+		},
+		{
+			"key": "paymentItemID",
+			"value": "239052555302027303",
+			"enabled": true
+		},
+		{
+			"key": "currentDate",
+			"value": 1539870945377,
+			"enabled": true
+		},
+		{
+			"key": "Authorization",
+			"value": "Bearer tDVOOjqVWlO1fL6pcwe4kTLnoBje6ICSDPKMAlsAECw",
+			"enabled": true
+		},
+		{
+			"key": "PCCT",
+			"value": "A8D261686B",
+			"enabled": true
+		},
+		{
+			"key": "nameOnCard",
+			"value": "Kieran Williams",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "addressLine1",
+			"value": "789 Piedmont Avenue",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "postalCode",
+			"value": "56789",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "XSRFToken",
+			"value": "CfDJ8PBoXiJrzrdMkT9-orXBSxabth5aJKuTFbQTRtk3CBS1hpIDxY0jmExUoaP2nZe7EEguMlfAa7_HQRg2krf5oKpzyaab_IMslBXLY_LVHA5A5dpVCB9opxw1iJarHbsvmg",
+			"enabled": true
+		},
+		{
+			"key": "accessToken",
+			"value": "u5O64E7peYSg7hhB2oww9pG0_JDCPXOrAX3M2sw1YZg",
+			"enabled": true
+		},
+		{
+			"key": "userId",
+			"value": "239385346487640864",
+			"enabled": true
+		},
+		{
+			"key": "email",
+			"value": "kieran.williams@vancopayments.com",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "Vanco11!",
+			"enabled": true
+		},
+		{
+			"key": "merchantID",
+			"value": "09301815",
+			"enabled": true
+		},
+		{
+			"key": "paymentReference",
+			"value": "10wh-jbj-gkh0h8",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2018-10-24T14:27:08.308Z",
+	"_postman_exported_using": "Postman/6.4.4"
+}
