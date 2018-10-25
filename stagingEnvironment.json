@@ -13,17 +13,17 @@
 		},
 		{
 			"key": "paymentMethodToken",
-			"value": "cddca7ad-75de-4b6f-a9a0-d70c39f2dc78",
+			"value": "f976de9b-47ae-4d94-8961-f55aff481dd7",
 			"enabled": true
 		},
 		{
 			"key": "paymentID",
-			"value": "239052555234918438",
+			"value": "240136365624082882",
 			"enabled": true
 		},
 		{
 			"key": "paymentItemID",
-			"value": "239052555302027303",
+			"value": "240136365624082883",
 			"enabled": true
 		},
 		{
@@ -70,12 +70,12 @@
 		},
 		{
 			"key": "XSRFToken",
-			"value": "CfDJ8PBoXiJrzrdMkT9-orXBSxabth5aJKuTFbQTRtk3CBS1hpIDxY0jmExUoaP2nZe7EEguMlfAa7_HQRg2krf5oKpzyaab_IMslBXLY_LVHA5A5dpVCB9opxw1iJarHbsvmg",
+			"value": "CfDJ8PBoXiJrzrdMkT9-orXBSxYWpSYrmzXIh2986mwzk9OSz3I_EXurDnSN9p4SB7s-0NjPURmYNdFhxYpbys6vREl_BiOVCJwuhN4v90qGL7zQJn-fwI3OPN8DPKOHYsImkw",
 			"enabled": true
 		},
 		{
 			"key": "accessToken",
-			"value": "u5O64E7peYSg7hhB2oww9pG0_JDCPXOrAX3M2sw1YZg",
+			"value": "mabPJYkbwV1EOvzTccLMnVsb1_f587zO6ZhPLGBJCsE",
 			"enabled": true
 		},
 		{
@@ -95,16 +95,21 @@
 		},
 		{
 			"key": "merchantID",
-			"value": "09301815",
+			"value": "203476508344320000",
 			"enabled": true
 		},
 		{
 			"key": "paymentReference",
-			"value": "10wh-jbj-gkh0h8",
+			"value": "10yp-g99-zxgzga",
+			"enabled": true
+		},
+		{
+			"key": "merchantIdentString",
+			"value": "09301815",
 			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2018-10-24T14:27:08.308Z",
+	"_postman_exported_at": "2018-10-25T18:41:37.340Z",
 	"_postman_exported_using": "Postman/6.4.4"
 }
