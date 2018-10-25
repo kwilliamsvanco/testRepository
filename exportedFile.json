@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "caa3b95d-169b-4014-b2e4-f0e0206d6e13",
+		"name": "CXP Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tokenize",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c0cbc878-ec24-4cf7-b3f8-93ee48a577ff",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "95c4ee93-2f4c-4ba5-a8f8-ff0f4b7b1ccf",
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);",
+							"",
+							"let oldToken = pm.environment.get(\"paymentMethodToken\");",
+							"",
+							"let oldName = pm.environment.get(\"nameOnCard\");",
+							"",
+							"let oldAddress = pm.environment.get(\"addressLine1\");",
+							"",
+							"let oldPostal = pm.environment.get(\"postalCode\");",
+							"",
+							"console.log(\"old token: \" + oldToken);",
+							"",
+							"console.log(\"old name: \" + oldName);",
+							"",
+							"console.log(\"old address: \" + oldAddress);",
+							"",
+							"console.log(\"old postal: \" + oldPostal);",
+							"",
+							"postman.setEnvironmentVariable(\"paymentMethodToken\", jsonData.paymentMethodToken);",
+							"",
+							"postman.setEnvironmentVariable(\"nameOnCard\", jsonData.nameOnCard);",
+							"",
+							"postman.setEnvironmentVariable(\"addressLine1\", jsonData.addressLine1);",
+							"",
+							"postman.setEnvironmentVariable(\"postalCode\", jsonData.postalCode);",
+							"",
+							"console.log(\"new token: \" + pm.environment.get(\"paymentMethodToken\"));",
+							"",
+							"console.log(\"new name: \" + pm.environment.get(\"nameOnCard\"));",
+							"",
+							"console.log(\"new address: \" + pm.environment.get(\"addressLine1\"));",
+							"",
+							"console.log(\"new postal: \" + pm.environment.get(\"postalCode\"));",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is not 200\", function () {",
+							"    pm.response.to.not.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 5000ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+							"});",
+							"",
+							"pm.test(\"Test Environment\", function() {",
+							"    pm.expect(jsonData.isTest).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Card Type Returned\", function() {",
+							"    pm.expect(jsonData.brand).to.eql(\"visa\");",
+							"});",
+							"",
+							"pm.test(\"New Token Generated\", function() {",
+							"    pm.expect(oldToken).to.not.eql(pm.environment.get(\"paymentMethodToken\"));",
+							"});",
+							"",
+							"pm.test(\"New Name on Card\", function() {",
+							"    pm.expect(oldName).to.not.eql(pm.environment.get(\"nameOnCard\"));",
+							"});",
+							"",
+							"pm.test(\"New Address Line 1\", function() {",
+							"    pm.expect(oldAddress).to.not.eql(pm.environment.get(\"addressLine1\"));",
+							"});",
+							"",
+							"pm.test(\"New Postal Code\", function() {",
+							"    pm.expect(oldPostal).to.not.eql(pm.environment.get(\"postalCode\"));",
+							"});",
+							"",
+							"postman.setNextRequest(\"Create Payment\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "PCCT",
+						"value": "{{PCCT}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nameOnCard\": \"{{nameOnCard}}\",\n\t\"cardNumber\": \"4111111111111111\",\n\t\"expireMonth\": \"02\",\n\t\"expireYear\": \"22\",\n\t\"addressLine1\": \"{{addressLine1}}\",\n\t\"postalCode\": \"{{postalCode}}\"\n}"
+				},
+				"url": {
+					"raw": "https://processor.connexpoint{{env}}.com/tokenize",
+					"protocol": "https",
+					"host": [
+						"processor",
+						"connexpoint{{env}}",
+						"com"
+					],
+					"path": [
+						"tokenize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad761f89-c2de-40e7-b63f-cd5ab8cc41ba",
+						"exec": [
+							"",
+							"let jsonData = JSON.parse(responseBody);",
+							"",
+							"let oldPaymentID = pm.environment.get(\"paymentID\");",
+							"",
+							"console.log(\"old payment ID: \" + oldPaymentID);",
+							"",
+							"postman.setEnvironmentVariable(\"paymentID\", jsonData.paymentID);",
+							"",
+							"console.log(\"new payment ID: \" + pm.environment.get(\"paymentID\"));",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is not 200\", function () {",
+							"    pm.response.to.not.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 5000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+							"});",
+							"",
+							"pm.test(\"Test Environment\", function () {",
+							"    pm.expect(jsonData.isTest).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"New Payment ID Generated\", function () {",
+							"    pm.expect(oldPaymentID).to.not.eql(pm.environment.get(\"paymentID\"));",
+							"});",
+							"",
+							"pm.test(\"Status is Success\", function () {",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							"postman.setNextRequest(\"Execute Payment\");",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "PCCT",
+						"value": "{{PCCT}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 6.40,\n    \"execute\": false,\n    \"paymentMethodToken\": \"{{paymentMethodToken}}\",\n    \"invoiceReference\": \"12345678\",\n    \"noteToPayer\": \"This is a test payment.\",\n    \"items\": [\n      {\n        \"orderReferenceID\": \"87654321\",\n        \"description\": \"Test item\",\n        \"extendedPrice\": 6.00,\n        \"extendedTax\": 0.40,\n        \"productCode\": \"SKU123\",\n        \"accountCode\": \"account-code-1\",\n        \"payeeID\": \"11\",\n        \"payeeName\": \"Susan Jones\",\n        \"quantity\": 1\n      }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://pay.connexpoint{{env}}.com/v1/payments",
+					"protocol": "https",
+					"host": [
+						"pay",
+						"connexpoint{{env}}",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60a1f2ca-0566-4ec1-9457-d6ca95f75d27",
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);",
+							"",
+							"let oldPaymentItemID = pm.environment.get(\"paymentItemID\");",
+							"",
+							"console.log(\"old payment item ID: \" + oldPaymentItemID);",
+							"",
+							"postman.setEnvironmentVariable(\"paymentItemID\", jsonData.items[0].paymentItemID);",
+							"",
+							"console.log(\"new payment item ID: \" + pm.environment.get(\"paymentItemID\"));",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is not 200\", function () {",
+							"    pm.response.to.not.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 5000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+							"});",
+							"",
+							"pm.test(\"Test Environment\", function () {",
+							"    pm.expect(jsonData.isTest).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"New Payment Item ID Generated\", function () {",
+							"    pm.expect(oldPaymentItemID).to.not.eql(pm.environment.get(\"paymentItemID\"));",
+							"});",
+							"",
+							"pm.test(\"Status is Success\", function () {",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "PCCT",
+						"value": "{{PCCT}}"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"amount\": 6.40\n}"
+				},
+				"url": {
+					"raw": "https://pay.connexpoint{{env}}.com/v1/payments/{{paymentID}}/execute",
+					"protocol": "https",
+					"host": [
+						"pay",
+						"connexpoint{{env}}",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payments",
+						"{{paymentID}}",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
