@@ -1,0 +1,110 @@
+{
+	"id": "c9d73868-764d-489e-a658-34ae8d268a19",
+	"name": "Staging",
+	"values": [
+		{
+			"key": "env",
+			"value": "stage",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "paymentMethodToken",
+			"value": "a28c8472-2c25-415d-8849-7ee23de0e9a3",
+			"enabled": true
+		},
+		{
+			"key": "paymentID",
+			"value": "242722458569203725",
+			"enabled": true
+		},
+		{
+			"key": "paymentItemID",
+			"value": "242722458569203726",
+			"enabled": true
+		},
+		{
+			"key": "Authorization",
+			"value": "Bearer tDVOOjqVWlO1fL6pcwe4kTLnoBje6ICSDPKMAlsAECw",
+			"enabled": true
+		},
+		{
+			"key": "PCCT",
+			"value": "A8D261686B",
+			"enabled": true
+		},
+		{
+			"key": "name",
+			"value": "",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "addressLine1",
+			"value": "",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "postalCode",
+			"value": "",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			},
+			"enabled": true
+		},
+		{
+			"key": "XSRFToken",
+			"value": "CfDJ8PBoXiJrzrdMkT9-orXBSxYgIAl2Xk-BLCuKICHo8GxNuehBK6hBLbhYpN83DXgLVwEZ8POeRsGqKllCJ-QZTOrMoSTY2rfWlvNH4Pg02GB3wlQyeliaYx_gdQ66ufIZD-9qI2PEPIPMD3NiGBw8Ta_CW4hBsYLVAxx0Kuksf0f6",
+			"enabled": true
+		},
+		{
+			"key": "accessToken",
+			"value": "9SgGPcCi1uDn54h9Hc-wtwwph1Wf6wj4PG_-a1bG2Qo",
+			"enabled": true
+		},
+		{
+			"key": "userId",
+			"value": "239385346487640864",
+			"enabled": true
+		},
+		{
+			"key": "email",
+			"value": "kieran.williams@vancopayments.com",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "Vanco11!",
+			"enabled": true
+		},
+		{
+			"key": "merchantID",
+			"value": "203476508344320000",
+			"enabled": true
+		},
+		{
+			"key": "paymentReference",
+			"value": "117d-zd5-ba94mq",
+			"enabled": true
+		},
+		{
+			"key": "merchantIdentString",
+			"value": "09301815",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-04-08T14:54:20.137Z",
+	"_postman_exported_using": "Postman/7.0.7"
+}
