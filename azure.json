@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "39348d77-3fc2-404e-a1f3-b0e8ac903001",
+		"name": "Azure",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Masters and Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19acd0aa-87da-49a3-91af-1893941f75c0",
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);",
+							"",
+							"let sessionID = \"\";",
+							"let masterID = \"\";",
+							"let result = jsonData.result[0];",
+							"",
+							"if(result.name === \"Use Case 1\") {",
+							"    sessionID = result.sessionsId[0];",
+							"    masterID = result.id;",
+							"}",
+							"",
+							"console.log(\"Session ID: \" + sessionID);",
+							"",
+							"pm.test(\"Session ID Retrieved\", function() {",
+							"    pm.expect(sessionID).to.not.equal(\"\");",
+							"});",
+							"",
+							"pm.test(\"Master ID Retrieved\", function() {",
+							"    pm.expect(masterID).to.not.equal(\"\");",
+							"});",
+							"",
+							"pm.environment.set(\"sessionID\", sessionID);",
+							"pm.environment.set(\"masterID\", masterID);",
+							"",
+							"postman.setNextRequest(\"Retrieve Logs\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "bae8deb56792ab15395eae2d4c8f5233fa4271c8c55b537ee26f85072a790a5b391fcd74",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "606a8a93b555513aa63c0e2f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://a.blazemeter.com/api/v4/masters?testId=7793923",
+					"protocol": "https",
+					"host": [
+						"a",
+						"blazemeter",
+						"com"
+					],
+					"path": [
+						"api",
+						"v4",
+						"masters"
+					],
+					"query": [
+						{
+							"key": "testId",
+							"value": "7793923"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Logs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c347eacc-35a3-4650-887d-d8aa8a716a53",
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);",
+							"",
+							"let artifact = \"\";",
+							"let title = jsonData.result.data[0].title;",
+							"",
+							"if(title === \"artifacts\") {",
+							"    artifact = jsonData.result.data[0].dataUrl;",
+							"}",
+							"",
+							"console.log(artifact);",
+							"",
+							"pm.test(\"Artifact Retrieved\", function() {",
+							"    pm.expect(artifact).to.not.equal(\"\");",
+							"});",
+							"",
+							"",
+							"pm.environment.set(\"artifactURL\", artifact);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "bae8deb56792ab15395eae2d4c8f5233fa4271c8c55b537ee26f85072a790a5b391fcd74",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "606a8a93b555513aa63c0e2f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://a.blazemeter.com/api/v4/sessions/{{sessionID}}/reports/logs",
+					"protocol": "https",
+					"host": [
+						"a",
+						"blazemeter",
+						"com"
+					],
+					"path": [
+						"api",
+						"v4",
+						"sessions",
+						"{{sessionID}}",
+						"reports",
+						"logs"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
